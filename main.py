@@ -4,6 +4,20 @@ import cv2
 from sklearn.ensemble import RandomForestClassifier
 import xml.etree.ElementTree as ET
 
+# TODO Jakość kodu i raport (4/4)
+
+
+# TODO Skuteczność klasyfikacji 0.906 (4/4)
+# TODO [0.00, 0.50) - 0.0
+# TODO [0.50, 0.55) - 0.5
+# TODO [0.55, 0.60) - 1.0
+# TODO [0.60, 0.65) - 1.5
+# TODO [0.65, 0.70) - 2.0
+# TODO [0.70, 0.75) - 2.5
+# TODO [0.75, 0.80) - 3.0
+# TODO [0.80, 0.85) - 3.5
+# TODO [0.85, 1.00) - 4.0
+
 def odczyt(traincondition):
 
     """
@@ -13,12 +27,13 @@ def odczyt(traincondition):
     """
 
     dane = []
+    # TODO Zla sciezka. (-1)
     if traincondition == 1 :
-        sciezka_annotations = 'train/annotations'
-        sciezka_images = 'train/images'
+        sciezka_annotations = '../train/annotations'
+        sciezka_images = '../train/images'
     else :
-        sciezka_annotations = 'test/annotations'
-        sciezka_images = 'test/images'
+        sciezka_annotations = '../test/annotations'
+        sciezka_images = '../test/images'
 
     if traincondition == 1: #dzialanie funkcji dla trenowania
         for filename in os.scandir(sciezka_annotations):
@@ -47,7 +62,8 @@ def odczyt(traincondition):
 
 
     elif traincondition == 0 :  #dzialanie funkcji dla testowania
-        wejscie = 'input.txt'
+        # TODO Zla sciezka.
+        wejscie = '../test/input.txt'
         with open(wejscie) as f:
             wejscie_lines = f.readlines()
 
